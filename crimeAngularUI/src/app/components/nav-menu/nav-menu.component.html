@@ -1,0 +1,96 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu"
+  #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <span (mouseleave)="menuTrigger.closeMenu()">
+      <button mat-menu-item  class="nav-item nav-link-edit" [routerLink]="['bytype']" >
+        <mat-icon>local_police</mat-icon>
+        <span>View Crimes By Type</span>
+      </button>
+      <button mat-menu-item  class="nav-item nav-link-edit" [routerLink]="['topBads']" >
+        <mat-icon>local_police</mat-icon>
+        <span>View Top 10 offenders</span>
+      </button>
+
+
+      <button mat-menu-item   class="nav-item nav-link-edit" [routerLink]="['mapView']" >
+        <mat-icon>map</mat-icon>
+        <span>Map View</span>
+      </button>
+      <!-- <button mat-menu-item>
+        <mat-icon>videocam</mat-icon>
+        <span>Let's talk</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button> -->
+  </span>
+  </mat-menu>
+  <span>Fun with Crime stats</span>
+  <span class="example-spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button> -->
+</mat-toolbar>
+<!--
+
+
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Angular7</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/home2']"
+              >home2</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/home3']"
+              >home3</a
+            >
+          </li>
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/counter']"
+              >Counter</a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
+              >Fetch data</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header> -->

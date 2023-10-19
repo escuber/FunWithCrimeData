@@ -1,0 +1,16 @@
+.mat-column_count
+ {
+  flex: 2;
+
+  align-items: flex-end;
+  overflow: hidden;
+  word-wrap: break-word;
+  min-height: inherit;
+  flex-direction: row;
+  justify-content: flex-end!important;
+  align-content: center;
+}
+.mat-column-name{
+  flex: 24;
+
+}

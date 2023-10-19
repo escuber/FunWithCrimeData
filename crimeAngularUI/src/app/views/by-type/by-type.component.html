@@ -1,0 +1,70 @@
+<!--
+ The current screen size is <strong>{{currentScreenSize}}</strong> -->
+<div class="flex-container">
+
+    <mat-drawer-container *ngIf="(currentScreenSize!='XSmall')||(currentScreenSize==='XSmall' && crime==null)" class="wchild demos"  [hasBackdrop]="true">
+
+        <button   mat-raised-button (click)="drawer.toggle()">Show Demographics</button>
+
+      <mat-drawer #drawer mode="push">
+
+        <ul *ngFor="let opt of opts">
+          <span class="demoName"> {{opt.name}} </span>
+          <span class="selSpan" (click)="toggleselectAll(opt)"></span>
+          <mat-icon class="selectAll" aria-hidden="false" [matTooltip]="tooltipVariable1"
+              aria-label="Example home icon" fontIcon="done_all"></mat-icon>
+          <mat-icon class="selectNone" aria-hidden="false" [matTooltip]="tooltipVariable2"
+              aria-label="Example home icon" fontIcon="remove_circle"></mat-icon>
+          <ul>
+              <li *ngFor="let subtask of opt.options">
+                  <mat-checkbox [(ngModel)]="subtask.checked" (click)="buildOptions()">
+                      {{subtask.name}}
+                  </mat-checkbox>
+                </li>
+          </ul>
+         </ul>
+
+      </mat-drawer>
+      <mat-drawer-content>
+
+        <mat-card fxLayout="column" fxLayoutAlign="center center" style="margin: 10px;height: 777px;">
+          <mat-card-title>
+            <h2 style=" margin-top: 10px;font-size: 31px;    margin-left: 10px;">Crimes/month: {{totalCrimes}}</h2>
+            <button   mat-raised-button (click)="drawer.toggle()">Show Demographics</button>
+          </mat-card-title>
+          <mat-card-content>
+
+            <div class="example-container" style="position:relative;top: 3px;">
+              <section class="table-container mat-elevation-z8" tabindex="0">
+                <app-sort-table [showFilter]=false [item]="kidData" (selectedCrimeEvent)="setCrimeSelected($event)"></app-sort-table>
+
+
+              </section>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-drawer-content>
+    </mat-drawer-container>
+
+    <div class="wchild2 " *ngIf="crime!=null">
+      <mat-card fxLayout="column" fxLayoutAlign="center center" style="margin: 10px;height: 777px;">
+        <mat-card-title>
+          <h2 (click)="unselectType()" style="    margin-top: 10px;
+      font-size: 31px;    margin-left: 10px;
+      ">Crimes of {{crime}}</h2>
+
+        </mat-card-title>
+        <mat-card-content>
+
+          <!-- <div class="example-container" style="position:relative;top: 3px;"> -->
+            <section class="table-container mat-elevation-z8" tabindex="0">
+              <app-sort-table [item]='kid2Data' (selectedCrimeEvent)="setCrimeSelected($event)"></app-sort-table>
+            </section>
+          <!-- </div> -->
+        </mat-card-content>
+
+      </mat-card>
+
+    </div>
+
+</div>

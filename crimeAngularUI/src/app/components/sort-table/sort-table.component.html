@@ -1,0 +1,24 @@
+
+<mat-form-field *ngIf="showFilter">
+  <input matInput (keyup)="applyFilter($event)" placeholder="containing">
+</mat-form-field>
+<mat-table #table1 vertical_align_top [dataSource]="dataSource" matSort
+(matSortChange)="announceSortChange($event)">
+
+<ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+    <mat-cell *matCellDef="let emp"> {{emp.name}} </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="count">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Count</mat-header-cell>
+    <mat-cell *matCellDef="let emp"> {{emp.count}} </mat-cell>
+</ng-container>
+
+
+<mat-header-row *matHeaderRowDef="displayedColumns"
+    matHeaderRowDefSticky="true"></mat-header-row>
+<mat-row (click)="selectType(emp)"
+    *matRowDef="let emp; columns: displayedColumns;"></mat-row>
+
+</mat-table>

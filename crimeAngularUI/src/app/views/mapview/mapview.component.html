@@ -1,0 +1,57 @@
+<!-- <div style=" display: flex;border:2px solid rgb(36, 29, 14)  ;width:300px;height: 100%;">
+  <div   style="border:2px solid orange  ;width:300px;height: 100%;">
+    This is the left
+  </div>
+  <div style="border:2px solid orange  ;flex-grow: 4;min-width: 600px;height: 100%;align-self: flex-end;">
+      <google-map id='map' height="100%"
+                  width="100%"
+                  [center]="center"
+                  [zoom]="zoom"
+                  (mapClick)="moveMap($event)"
+                >
+                <map-marker (mapClick)="markerClick(marker)"  *ngFor="let marker of markers"
+
+                [title]="marker.title"
+                [position]="marker.position"></map-marker>
+
+      </google-map>
+    </div>
+</div> -->
+<div class="wrapper">
+  <article class="main">
+    <google-map id='map' height="100%"
+    width="100%"
+    [center]="center"
+    [zoom]="zoom"
+    (mapClick)="moveMap($event)"
+  >
+  <map-marker (mapClick)="markerClick(marker)"  *ngFor="let marker of markers"
+
+  [title]="marker.title"
+  [position]="marker.position"></map-marker>
+
+</google-map>
+  </article>
+  <aside class="aside aside-1">
+
+    <mat-card fxLayout="column" fxLayoutAlign="center center" style="margin: 10px;height: 900px;">
+      <mat-card-title>
+        <h2 style=" margin-top: 10px;font-size: 31px;    margin-left: 10px;">Top Bad Guys</h2>
+     </mat-card-title>
+      <mat-card-content style="overflow: auto;">
+
+        <div class="example-container" style="position:relative;top: 3px;">
+          <section class="table-container mat-elevation-z8" tabindex="0">
+
+            <app-sort-table   [showFilter]=false [item]="kidData" (selectedCrimeEvent)="setCrimeSelected($event)"></app-sort-table>
+
+
+          </section>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+
+  </aside>
+  <aside class="aside aside-2">Aside 2</aside>
+</div>
